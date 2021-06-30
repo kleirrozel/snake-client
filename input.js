@@ -27,6 +27,15 @@ const handleUserInput = function (key) {
   } else if (key === 'd') { // Move: right
     connection.write("Move: right");
     console.log("Move: right");
+  } else if (key === 'q') {
+    connection.write("Say: YUM");
+    console.log("YUM");
+  } else if (key === 'e') {
+    connection.write("Say: NOM");
+    console.log("NOM");
+  } else if (key === 'c') {
+    connection.write("Say: BURP");
+    console.log("BURP");
   }
   return handleUserInput;
 };
