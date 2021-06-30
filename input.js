@@ -1,7 +1,9 @@
 const { stdin } = require("process");
 
-const setupInput = function () {
+let connection; // Stores the active TCP connection object.
 
+const setupInput = function (conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -10,17 +12,23 @@ const setupInput = function () {
   return stdin;
 };
 
-const handleUserInput = function () {
-  if (key === '\u0003') { /// ctrl+c which exits
+const handleUserInput = function (key) {
+  if (key === '\u0003') { // ctrl+c which exits
     process.exit();
-  } else if (key === 'w') {
-    
-  } else if (key === 'a') {
-
-  } else if (key === 's') {
-
-  } else if (key === 'd') {
-
-  return handleUserInput;
+  } else if (key === 'w') { // Move: up
+    connection.write("Move: up");
+    console.log("Move: up");
+  } else if (key === 'a') { // Move: left
+    connection.write("Move: left");
+    console.log("Move: left");
+  } else if (key === 's') { // Move: down
+    connection.write("Move: down");
+    console.log("Move: down");
+  } else if (key === 'd') { // Move: right
+    connection.write("Move: right");
+    console.log("Move: right");
   }
+  return handleUserInput;
 };
+
+module.exports = setupInput;
