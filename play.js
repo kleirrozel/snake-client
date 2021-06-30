@@ -26,6 +26,7 @@ const handleUserInput = function () {
   } else if (key === 'd') {
 
   return handleUserInput;
+  }
 };
 
-setupInput();
+setupInput(); 
