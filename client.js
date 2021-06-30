@@ -6,10 +6,13 @@ const connect = function () {
     port: 50541,
     host: 'localhost'
   },() => {
-    console.log(`Succesful connection!`) // waiting for it to connect before it console logs
+    console.log(`Succesful connection!`);// waiting for it to connect before it console logs
+    conn.write("Name: KLE");
+    // conn.write("Move: up");
+    conn.write("Move: down");
+    // conn.write("Move: left");
+    // conn.write("Move: right");
   });
-  
-  // console.log(`hello`) // no requirement for it to finish something
   
   // interpret incoming data as text
   conn.setEncoding("utf8");
@@ -21,4 +24,4 @@ const connect = function () {
   return conn;
 };
 
-module.exports = connect
+module.exports = connect;
